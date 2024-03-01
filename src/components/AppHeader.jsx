@@ -7,8 +7,12 @@ import {Appbar, Text, useTheme} from 'react-native-paper';
 const AppHeader = () => {
   const theme = useTheme();
   return (
-    <View style={[style.headerContainer]}>
-      <Appbar.Header>
+    <View
+      style={[
+        style.headerContainer,
+        {backgroundColor: theme.colors.elevation.level1},
+      ]}>
+      <Appbar.Header style={{backgroundColor: theme.colors.elevation.level0}}>
         <Appbar.Content
           title={
             <>
@@ -28,20 +32,20 @@ const AppHeader = () => {
         <Appbar.Action
           icon={() => (
             <NotificationBing
-              size={31}
+              size={29}
               color={theme.colors.primary}
               variant="Broken"
             />
           )}
-          size={31}
+          size={29}
           mode="contained-tonal"
           onPress={() => console.log('Notification Pressed')}
         />
         <Appbar.Action
           icon={() => (
-            <Heart size={31} color={theme.colors.primary} variant="Broken" />
+            <Heart size={29} color={theme.colors.primary} variant="Broken" />
           )}
-          size={31}
+          size={29}
           mode="contained-tonal"
           onPress={() => console.log('Heart Pressed')}
         />
@@ -55,6 +59,7 @@ export default AppHeader;
 const style = StyleSheet.create({
   headerContainer: {
     paddingVertical: 22,
+    paddingTop: 30,
     paddingHorizontal: 5,
   },
   headerText: {
