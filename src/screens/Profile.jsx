@@ -5,6 +5,8 @@ import {Button, Switch, useTheme} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectCurrentTheme, setTheme} from '../redux/reducers/themeSlice';
 
+//TODO: Create an Items Vault which contains all the items that the user bought
+
 const Profile = () => {
   const theme = useTheme();
   const dispatch = useDispatch();

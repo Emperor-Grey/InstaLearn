@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-unstable-nested-components */
-import {Home2, I24Support, Profile, SearchNormal1} from 'iconsax-react-native';
+import {Book1, Home2, Profile, ShoppingCart} from 'iconsax-react-native';
 import React, {useState} from 'react';
 import {BottomNavigation, useTheme} from 'react-native-paper';
+import CartScreen from '../screens/Cart';
+import CourseScreen from '../screens/Course';
 import HomeScreen from '../screens/Home';
 import ProfileScreen from '../screens/Profile';
-import SearchScreen from '../screens/Search';
-import SupportScreen from '../screens/Support';
 
 const BottomNav = () => {
   const [index, setIndex] = useState(0);
@@ -28,31 +28,27 @@ const BottomNav = () => {
       ),
     },
     {
-      key: 'search',
-      title: 'Search',
+      key: 'course',
+      title: 'Course',
       focusedIcon: () => (
-        <SearchNormal1
-          size={24}
-          color={useTheme().colors.primary}
-          variant="Bold"
-        />
+        <Book1 size={24} color={useTheme().colors.primary} variant="Bold" />
       ),
       unfocusedIcon: () => (
-        <SearchNormal1 size="24" color={useTheme().colors.primary} />
+        <Book1 size="24" color={useTheme().colors.primary} />
       ),
     },
     {
-      key: 'support',
-      title: 'Support',
+      key: 'cart',
+      title: 'My Cart',
       focusedIcon: () => (
-        <I24Support
+        <ShoppingCart
           size={24}
           color={useTheme().colors.primary}
           variant="Bold"
         />
       ),
       unfocusedIcon: () => (
-        <I24Support size="24" color={useTheme().colors.primary} />
+        <ShoppingCart size="24" color={useTheme().colors.primary} />
       ),
     },
     {
@@ -69,8 +65,8 @@ const BottomNav = () => {
 
   const renderScene = BottomNavigation.SceneMap({
     home: HomeScreen,
-    search: SearchScreen,
-    support: SupportScreen,
+    course: CourseScreen,
+    cart: CartScreen,
     profile: ProfileScreen,
   });
 
