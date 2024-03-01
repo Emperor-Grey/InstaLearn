@@ -7,12 +7,8 @@ import {Appbar, Text, useTheme} from 'react-native-paper';
 const AppHeader = () => {
   const theme = useTheme();
   return (
-    <View
-      style={[
-        style.headerContainer,
-        {backgroundColor: theme.colors.elevation.level2},
-      ]}>
-      <Appbar.Header style={{backgroundColor: theme.colors.elevation.level2}}>
+    <View style={[style.headerContainer]}>
+      <Appbar.Header>
         <Appbar.Content
           title={
             <>
@@ -21,7 +17,9 @@ const AppHeader = () => {
                 style={[style.headerText, {color: theme.colors.onSurface}]}>
                 Hello King!
               </Text>
-              <Text variant="titleMedium" style={{color: theme.colors.text}}>
+              <Text
+                variant="titleMedium"
+                style={{color: theme.colors.onSurfaceDisabled}}>
                 Let's learn something today
               </Text>
             </>

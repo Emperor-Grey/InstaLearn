@@ -61,6 +61,7 @@ const BottomNav = () => {
       navigationState={{index, routes}}
       onIndexChange={setIndex}
       renderScene={renderScene}
+      compact={false}
     />
   );
 };
