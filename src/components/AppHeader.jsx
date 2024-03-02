@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import {Heart, NotificationBing} from 'iconsax-react-native';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {Appbar, Text, useTheme} from 'react-native-paper';
 
 const AppHeader = () => {
@@ -58,8 +58,8 @@ export default AppHeader;
 
 const style = StyleSheet.create({
   headerContainer: {
-    paddingVertical: 22,
-    paddingTop: 30,
+    paddingVertical: 18,
+    paddingTop: Platform.Version > 33 ? 0 : 30,
     paddingHorizontal: 5,
   },
   headerText: {

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useColorScheme} from 'react-native';
+import {StatusBar, useColorScheme} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 import SystemNavigationBar from 'react-native-system-navigation-bar';
 import {useSelector} from 'react-redux';
@@ -60,6 +60,11 @@ const App = () => {
 
   return (
     <PaperProvider theme={paperTheme}>
+      <StatusBar
+        translucent
+        backgroundColor={'transparent'}
+        barStyle={'default'}
+      />
       <BottomNav />
     </PaperProvider>
   );

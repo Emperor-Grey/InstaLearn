@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
+import {useTheme} from 'react-native-paper';
 
 const Cart = () => {
+  const theme = useTheme();
   return (
-    <View>
+    <SafeAreaView style={{backgroundColor: theme.colors.background}}>
       <Text>Cart</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
