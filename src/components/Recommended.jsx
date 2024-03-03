@@ -61,9 +61,10 @@ const Recommended = () => {
         </Text>
         <View style={{paddingVertical: 10}}>
           <Card
+            elevation={1}
             mode="elevated"
             style={{
-              minHeight: 180,
+              minHeight: 200,
               minWidth: '100%',
               padding: 10,
             }}

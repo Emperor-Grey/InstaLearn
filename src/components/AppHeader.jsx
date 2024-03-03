@@ -2,7 +2,7 @@
 import {Heart, NotificationBing} from 'iconsax-react-native';
 import React from 'react';
 import {Platform, StyleSheet, View} from 'react-native';
-import {Appbar, Text, useTheme} from 'react-native-paper';
+import {Appbar, Text, Tooltip, useTheme} from 'react-native-paper';
 
 const AppHeader = () => {
   const theme = useTheme();
@@ -12,7 +12,7 @@ const AppHeader = () => {
         style.headerContainer,
         {backgroundColor: theme.colors.elevation.level1},
       ]}>
-      <Appbar.Header style={{backgroundColor: theme.colors.elevation.level0}}>
+      <Appbar.Header style={{backgroundColor: theme.colors.elevation.level1}}>
         <Appbar.Content
           title={
             <>
@@ -29,26 +29,31 @@ const AppHeader = () => {
             </>
           }
         />
-        <Appbar.Action
-          icon={() => (
-            <NotificationBing
-              size={29}
-              color={theme.colors.primary}
-              variant="Broken"
-            />
-          )}
-          size={29}
-          mode="contained-tonal"
-          onPress={() => console.log('Notification Pressed')}
-        />
-        <Appbar.Action
-          icon={() => (
-            <Heart size={29} color={theme.colors.primary} variant="Broken" />
-          )}
-          size={29}
-          mode="contained-tonal"
-          onPress={() => console.log('Heart Pressed')}
-        />
+        <Tooltip title="Notification">
+          <Appbar.Action
+            icon={() => (
+              <NotificationBing
+                size={29}
+                color={theme.colors.primary}
+                variant="Broken"
+              />
+            )}
+            size={29}
+            mode="contained-tonal"
+            onPress={() => console.log('Notification Pressed')}
+          />
+        </Tooltip>
+
+        <Tooltip title="Favorites">
+          <Appbar.Action
+            icon={() => (
+              <Heart size={29} color={theme.colors.primary} variant="Broken" />
+            )}
+            size={29}
+            mode="contained-tonal"
+            onPress={() => console.log('Heart Pressed')}
+          />
+        </Tooltip>
       </Appbar.Header>
     </View>
   );
