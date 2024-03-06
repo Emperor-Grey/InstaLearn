@@ -1,3 +1,4 @@
+import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {StatusBar, useColorScheme} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
@@ -65,7 +66,9 @@ const App = () => {
         backgroundColor={'transparent'}
         barStyle={'default'}
       />
-      <BottomNav />
+      <NavigationContainer theme={paperTheme}>
+        <BottomNav />
+      </NavigationContainer>
     </PaperProvider>
   );
 };
