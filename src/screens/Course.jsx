@@ -4,6 +4,7 @@ import {More} from 'iconsax-react-native';
 import React from 'react';
 import {Platform, SafeAreaView, StyleSheet, View} from 'react-native';
 import {Appbar, Text, useTheme} from 'react-native-paper';
+import TabNav from '../navigation/TabNav';
 
 const Course = () => {
   const theme = useTheme();
@@ -32,6 +33,7 @@ const Course = () => {
           />
         </Appbar.Header>
       </View>
+      <TabNav />
     </SafeAreaView>
   );
 };
