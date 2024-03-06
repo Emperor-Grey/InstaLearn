@@ -1,11 +1,20 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
+import {useTheme} from 'react-native-paper';
 
 const Browse = () => {
+  const theme = useTheme();
   return (
-    <View>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.background,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
       <Text>Browse</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

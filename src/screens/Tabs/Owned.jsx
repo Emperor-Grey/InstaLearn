@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, SafeAreaView, View} from 'react-native';
 import {Card, Text, useTheme} from 'react-native-paper';
 
 const data = [
@@ -136,7 +136,13 @@ const Owned = () => {
   };
 
   return (
-    <View style={{padding: 2, paddingVertical: 4}}>
+    <SafeAreaView
+      style={{
+        padding: 2,
+        paddingVertical: 4,
+        flex: 1,
+        backgroundColor: theme.colors.background,
+      }}>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -146,7 +152,7 @@ const Owned = () => {
         contentContainerStyle={{gap: 0}}
         showsVerticalScrollIndicator={false}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

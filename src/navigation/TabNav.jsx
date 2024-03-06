@@ -16,12 +16,14 @@ const TabNav = () => {
         tabBarBounces: true,
         tabBarAndroidRipple: {borderless: true},
         tabBarInactiveTintColor: theme.colors.onSurfaceDisabled,
-        tabBarActiveTintColor: theme.colors.onSurface,
+        tabBarActiveTintColor: theme.colors.primary,
         tabBarContentContainerStyle: {
           backgroundColor: theme.colors.elevation.level2,
         },
         tabBarLabelStyle: {
           textTransform: 'none',
+          fontSize: 14,
+          fontFamily: 'Poppins-Medium',
         },
       }}>
       <Tab.Screen name="Explore" component={Browse} />
