@@ -13,7 +13,6 @@ const MyBanner = () => {
 
   const handlePress = () => {
     dispatch(setBannerVisibility(false));
-    console.log('Banner hidden successfully.');
   };
 
   return (
