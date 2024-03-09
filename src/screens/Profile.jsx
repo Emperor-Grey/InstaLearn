@@ -1,97 +1,97 @@
 /* eslint-disable react-native/no-inline-styles */
+
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Text, View} from 'react-native';
-import {Button, Switch, useTheme} from 'react-native-paper';
-import Animated, {FadeInUp} from 'react-native-reanimated';
-import {useDispatch, useSelector} from 'react-redux';
-import {selectCurrentTheme, setTheme} from '../redux/reducers/themeSlice';
+import {Pressable, SafeAreaView, View} from 'react-native';
+import {Avatar, Text, useTheme} from 'react-native-paper';
+import Animated, {FadeInDown} from 'react-native-reanimated';
+import CustomHeader from '../components/CustomHeader';
+import CustomSegmentedButton from '../components/CustomSegmentedButton';
+import SettingsItem from '../components/SettingsItem';
 
-//TODO: Create an Items Vault which contains all the items that the user bought
-
-const Profile = () => {
-  const theme = useTheme();
-  const dispatch = useDispatch();
-  const currentTheme = useSelector(selectCurrentTheme);
-
-  const toggleGreenApple = () => {
-    if (currentTheme !== 'GreenApple') {
-      dispatch(setTheme('GreenApple'));
-    }
-  };
-
-  const toggleBanana = () => {
-    if (currentTheme !== 'Banana') {
-      dispatch(setTheme('Banana'));
-    }
-  };
-
-  const toggleGrape = () => {
-    if (currentTheme !== 'GrapeSoda') {
-      dispatch(setTheme('GrapeSoda'));
-    }
-  };
-
-  const toggleOff = () => {
-    if (currentTheme !== 'Default') {
-      dispatch(setTheme('Default'));
-    }
-  };
-
+function SettingsGroup(props) {
+  const nav = useNavigation();
   return (
-    <Animated.View
-      entering={FadeInUp.duration(400).delay(500)}
+    <View
       style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: theme.colors.background,
+        backgroundColor: props.level1,
+        borderRadius: 12,
+        padding: 16,
       }}>
-      <Text style={{color: theme.colors.onBackground}}>Hello from Dev</Text>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          Green Apple
-        </Text>
-        <Switch
-          value={currentTheme === 'GreenApple'}
-          onValueChange={toggleGreenApple}
-          color={theme.colors.primary}
+      <Pressable onPress={() => {}}>
+        <SettingsItem icon={'Profile'} label={'User Details'} />
+      </Pressable>
+      <Pressable
+        onPress={() => {
+          nav.navigate('Test');
+        }}>
+        <SettingsItem icon={'Profile'} label={'Settings'} />
+      </Pressable>
+      <Pressable onPress={() => {}}>
+        <SettingsItem icon={'Profile'} label={'Help & Support'} />
+      </Pressable>
+      <Pressable onPress={() => {}}>
+        <SettingsItem icon={'Profile'} label={'Change Language'} />
+      </Pressable>
+    </View>
+  );
+}
+
+const Course = () => {
+  const theme = useTheme();
+  return (
+    <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.background}}>
+      <Animated.ScrollView
+        entering={FadeInDown.duration(400).delay(500)}
+        style={{flex: 1}}
+        showsVerticalScrollIndicator={false}
+        nestedScrollEnabled
+        alwaysBounceVertical>
+        <CustomHeader
+          title={'Profile'}
+          elevation={theme.colors.elevation.level1}
+          onSurface={theme.colors.onSurface}
+          customIconType="UserEdit"
         />
-      </View>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          Banana Bread
-        </Text>
-        <Switch
-          value={currentTheme === 'Banana'}
-          onValueChange={toggleBanana}
-          color={theme.colors.primary}
-        />
-      </View>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          Grape Soda
-        </Text>
-        <Switch
-          value={currentTheme === 'GrapeSoda'}
-          onValueChange={toggleGrape}
-          color={theme.colors.primary}
-        />
-      </View>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          Blue Sapphire
-        </Text>
-        <Switch
-          value={currentTheme === 'Default'}
-          onValueChange={toggleOff}
-          color={theme.colors.primary}
-        />
-      </View>
-      <Button onPress={toggleOff} style={{marginTop: 20}}>
-        Toggle Off
-      </Button>
-    </Animated.View>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View style={{flex: 1, alignItems: 'center', padding: 24}}>
+            <Avatar.Image
+              size={140}
+              source={{
+                uri: 'https://i.pinimg.com/736x/a7/96/e9/a796e9b1fdd519489599cb7a238fa6bc.jpg',
+              }}
+            />
+            <View
+              style={{
+                paddingVertical: 16,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text variant="labelLarge" style={{fontSize: 28, paddingTop: 12}}>
+                King Grey
+              </Text>
+              <Text variant="titleMedium" style={{padding: 8}}>
+                @Kinggrey
+              </Text>
+            </View>
+            {/* The Background Filled Orders,Payments,Location thing */}
+            <CustomSegmentedButton colors={theme.colors} />
+          </View>
+        </View>
+        <View style={{paddingHorizontal: 16}}>
+          {/* <Text variant="headlineSmall">Settings</Text> */}
+          <View style={{paddingTop: 16}}>
+            <SettingsGroup level1={theme.colors.elevation.level1} />
+          </View>
+        </View>
+      </Animated.ScrollView>
+    </SafeAreaView>
   );
 };
 
-export default Profile;
+export default Course;

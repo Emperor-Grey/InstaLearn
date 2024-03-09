@@ -40,7 +40,7 @@ const AppHeader = () => {
             )}
             size={29}
             mode="contained-tonal"
-            onPress={() => console.log('Notification Pressed')}
+            onPress={() => {}}
           />
         </Tooltip>
 
@@ -51,7 +51,7 @@ const AppHeader = () => {
             )}
             size={29}
             mode="contained-tonal"
-            onPress={() => console.log('Heart Pressed')}
+            onPress={() => {}}
           />
         </Tooltip>
       </Appbar.Header>

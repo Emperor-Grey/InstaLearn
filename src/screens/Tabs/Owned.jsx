@@ -97,7 +97,7 @@ const Owned = () => {
   const renderItem = ({item}) => {
     return (
       <Animated.View
-        entering={FadeInDown.duration(400).delay(500)}
+        entering={FadeInDown.duration(600).delay(1200)}
         style={{
           padding: 5,
           width: '100%',
