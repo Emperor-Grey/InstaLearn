@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {useTheme} from 'react-native-paper';
+import Animated, {FadeInDown, FadeOutUp} from 'react-native-reanimated';
 import AppHeader from '../components/AppHeader';
 import Explore from '../components/Explore';
 import MyBanner from '../components/MyBanner';
@@ -12,13 +13,16 @@ const Home = () => {
   return (
     <SafeAreaView
       style={[style.container, {backgroundColor: theme.colors.background}]}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <Animated.ScrollView
+        showsVerticalScrollIndicator={false}
+        exiting={FadeOutUp.duration(400).delay(500)}
+        entering={FadeInDown.duration(400).delay(500)}>
         <AppHeader />
         <MySearchBar />
         <MyBanner />
         <Recommended />
         <Explore />
-      </ScrollView>
+      </Animated.ScrollView>
       <ScrollView />
     </SafeAreaView>
   );

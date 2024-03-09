@@ -12,6 +12,7 @@ const TabNav = () => {
     <Tab.Navigator
       tabBarPosition="bottom"
       screenOptions={{
+        animationEnabled: true,
         tabBarIndicator: () => null,
         tabBarBounces: true,
         tabBarAndroidRipple: {borderless: true},

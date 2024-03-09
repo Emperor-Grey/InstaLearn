@@ -2,6 +2,7 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import {useTheme} from 'react-native-paper';
+import Animated, {FadeInDown} from 'react-native-reanimated';
 
 const Browse = () => {
   const theme = useTheme();
@@ -10,10 +11,15 @@ const Browse = () => {
       style={{
         flex: 1,
         backgroundColor: theme.colors.background,
-        justifyContent: 'center',
-        alignItems: 'center',
       }}>
-      <Text>Browse</Text>
+      <Animated.ScrollView
+        entering={FadeInDown.duration(400).delay(500)}
+        showsVerticalScrollIndicator={false}
+        alwaysBounceVertical
+        contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
+        style={{flex: 1}}>
+        <Text>Browse</Text>
+      </Animated.ScrollView>
     </SafeAreaView>
   );
 };

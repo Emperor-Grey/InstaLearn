@@ -1,7 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {FlatList, SafeAreaView, View} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 import {Card, Text, useTheme} from 'react-native-paper';
+import Animated, {FadeInDown, FadeInRight} from 'react-native-reanimated';
 
 const data = [
   {
@@ -95,7 +96,8 @@ const Owned = () => {
 
   const renderItem = ({item}) => {
     return (
-      <View
+      <Animated.View
+        entering={FadeInDown.duration(400).delay(500)}
         style={{
           padding: 5,
           width: '100%',
@@ -111,7 +113,8 @@ const Owned = () => {
           }}
         />
         {/* Render your card content here, using data from the item object */}
-        <View
+        <Animated.View
+          entering={FadeInRight.duration(400).delay(500)}
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -130,8 +133,8 @@ const Owned = () => {
             </Text>
             {item.price}
           </Text>
-        </View>
-      </View>
+        </Animated.View>
+      </Animated.View>
     );
   };
 

@@ -2,15 +2,17 @@
 /* eslint-disable react/no-unstable-nested-components */
 import {More} from 'iconsax-react-native';
 import React from 'react';
-import {Platform, SafeAreaView, StyleSheet, View} from 'react-native';
+import {Platform, SafeAreaView, StyleSheet} from 'react-native';
 import {Appbar, Text, useTheme} from 'react-native-paper';
+import Animated, {FadeInUp} from 'react-native-reanimated';
 import TabNav from '../navigation/TabNav';
 
 const Course = () => {
   const theme = useTheme();
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.background}}>
-      <View
+      <Animated.View
+        entering={FadeInUp.duration(400).delay(500)}
         style={[
           style.headerContainer,
           {backgroundColor: theme.colors.elevation.level1},
@@ -32,7 +34,7 @@ const Course = () => {
             onPress={() => {}}
           />
         </Appbar.Header>
-      </View>
+      </Animated.View>
       <TabNav />
     </SafeAreaView>
   );

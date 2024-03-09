@@ -2,6 +2,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Button, Switch, useTheme} from 'react-native-paper';
+import Animated, {FadeInUp} from 'react-native-reanimated';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectCurrentTheme, setTheme} from '../redux/reducers/themeSlice';
 
@@ -37,19 +38,18 @@ const Profile = () => {
   };
 
   return (
-    <View
+    <Animated.View
+      entering={FadeInUp.duration(400).delay(500)}
       style={{
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: theme.colors.background,
       }}>
-      <Text style={{color: theme.colors.onBackground}}>
-        Hello from Home Screen
-      </Text>
+      <Text style={{color: theme.colors.onBackground}}>Hello from Dev</Text>
       <View style={{flexDirection: 'row', marginTop: 20}}>
         <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          GreenApple
+          Green Apple
         </Text>
         <Switch
           value={currentTheme === 'GreenApple'}
@@ -59,7 +59,7 @@ const Profile = () => {
       </View>
       <View style={{flexDirection: 'row', marginTop: 20}}>
         <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          Banana
+          Banana Bread
         </Text>
         <Switch
           value={currentTheme === 'Banana'}
@@ -79,7 +79,7 @@ const Profile = () => {
       </View>
       <View style={{flexDirection: 'row', marginTop: 20}}>
         <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
-          Default
+          Blue Sapphire
         </Text>
         <Switch
           value={currentTheme === 'Default'}
@@ -90,7 +90,7 @@ const Profile = () => {
       <Button onPress={toggleOff} style={{marginTop: 20}}>
         Toggle Off
       </Button>
-    </View>
+    </Animated.View>
   );
 };
 
