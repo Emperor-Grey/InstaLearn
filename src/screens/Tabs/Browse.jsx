@@ -3,19 +3,19 @@ import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import {useTheme} from 'react-native-paper';
 
-const Cart = () => {
+const Browse = () => {
   const theme = useTheme();
   return (
     <SafeAreaView
       style={{
+        flex: 1,
         backgroundColor: theme.colors.background,
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
       }}>
-      <Text>Cart</Text>
+      <Text>Browse</Text>
     </SafeAreaView>
   );
 };
 
-export default Cart;
+export default Browse;
