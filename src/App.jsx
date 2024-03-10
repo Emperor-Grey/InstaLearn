@@ -1,11 +1,11 @@
-import {NavigationContainer} from '@react-navigation/native';
-import React, {useEffect} from 'react';
-import {StatusBar, useColorScheme} from 'react-native';
-import {Provider as PaperProvider} from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { StatusBar, useColorScheme } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 import SystemNavigationBar from 'react-native-system-navigation-bar';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import MainNav from './navigation/MainNav';
-import {selectCurrentTheme} from './redux/reducers/themeSlice';
+import { selectCurrentTheme } from './redux/reducers/themeSlice';
 import {
   darkTheme as BananaDark,
   lightTheme as BananaLight,
