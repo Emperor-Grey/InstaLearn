@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
-import {Avatar, Card, Text, useTheme} from 'react-native-paper';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { Avatar, Card, Text, useTheme } from 'react-native-paper';
 
 const data = [
   {
@@ -34,19 +34,20 @@ const data = [
 
 const Recommended = () => {
   const theme = useTheme();
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <View
       style={{
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 12,
-      }}>
+      }}
+    >
       <Avatar.Image
         size={76}
-        style={{backgroundColor: theme.colors.elevation.level5}}
-        source={{uri: item.image}}
+        style={{ backgroundColor: theme.colors.elevation.level5 }}
+        source={{ uri: item.image }}
       />
-      <Text variant="labelLarge" style={{fontSize: 18, marginTop: 8}}>
+      <Text variant="labelLarge" style={{ fontSize: 18, marginTop: 8 }}>
         {item.name}
       </Text>
       <Text variant="labelMedium">{item.work}</Text>
@@ -56,10 +57,10 @@ const Recommended = () => {
   return (
     <View>
       <View style={style.container}>
-        <Text variant="titleMedium" style={{fontSize: 24}}>
+        <Text variant="titleMedium" style={{ fontSize: 24 }}>
           Recommended Course
         </Text>
-        <View style={{paddingVertical: 10}}>
+        <View style={{ paddingVertical: 10 }}>
           <Card
             elevation={1}
             mode="elevated"
@@ -70,7 +71,7 @@ const Recommended = () => {
             }}
           />
         </View>
-        <Text variant="labelLarge" style={{fontSize: 20, marginTop: 10}}>
+        <Text variant="labelLarge" style={{ fontSize: 20, marginTop: 10 }}>
           Top Contributors
         </Text>
       </View>

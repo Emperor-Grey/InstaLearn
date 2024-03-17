@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, View} from 'react-native';
-import {Button, Switch, useTheme} from 'react-native-paper';
-import Animated, {FadeInUp} from 'react-native-reanimated';
-import {useDispatch, useSelector} from 'react-redux';
-import {selectCurrentTheme, setTheme} from '../redux/reducers/themeSlice';
+import { Text, View } from 'react-native';
+import { Button, Switch, useTheme } from 'react-native-paper';
+import Animated, { FadeInUp } from 'react-native-reanimated';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentTheme, setTheme } from '../redux/reducers/themeSlice';
 
 const Test = () => {
   const theme = useTheme();
@@ -43,10 +43,11 @@ const Test = () => {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: theme.colors.background,
-      }}>
-      <Text style={{color: theme.colors.onBackground}}>Hello from Dev</Text>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
+      }}
+    >
+      <Text style={{ color: theme.colors.onBackground }}>Hello from Dev</Text>
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Text style={{ marginRight: 10, color: theme.colors.onBackground }}>
           Green Apple
         </Text>
         <Switch
@@ -55,8 +56,8 @@ const Test = () => {
           color={theme.colors.primary}
         />
       </View>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Text style={{ marginRight: 10, color: theme.colors.onBackground }}>
           Banana Bread
         </Text>
         <Switch
@@ -65,8 +66,8 @@ const Test = () => {
           color={theme.colors.primary}
         />
       </View>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Text style={{ marginRight: 10, color: theme.colors.onBackground }}>
           Grape Soda
         </Text>
         <Switch
@@ -75,8 +76,8 @@ const Test = () => {
           color={theme.colors.primary}
         />
       </View>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        <Text style={{marginRight: 10, color: theme.colors.onBackground}}>
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Text style={{ marginRight: 10, color: theme.colors.onBackground }}>
           Blue Sapphire
         </Text>
         <Switch
@@ -85,7 +86,7 @@ const Test = () => {
           color={theme.colors.primary}
         />
       </View>
-      <Button onPress={toggleOff} style={{marginTop: 20}}>
+      <Button onPress={toggleOff} style={{ marginTop: 20 }}>
         Toggle Off
       </Button>
     </Animated.View>

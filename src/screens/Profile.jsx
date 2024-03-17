@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {Pressable, SafeAreaView, View} from 'react-native';
-import {Avatar, Text, useTheme} from 'react-native-paper';
-import Animated, {FadeInDown} from 'react-native-reanimated';
+import { Pressable, SafeAreaView, View } from 'react-native';
+import { Avatar, Text, useTheme } from 'react-native-paper';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 import CustomHeader from '../components/CustomHeader';
 import CustomSegmentedButton from '../components/CustomSegmentedButton';
 import SettingsItem from '../components/SettingsItem';
@@ -17,14 +17,16 @@ function SettingsGroup(props) {
         backgroundColor: props.level1,
         borderRadius: 12,
         padding: 16,
-      }}>
+      }}
+    >
       <Pressable onPress={() => {}}>
         <SettingsItem icon={'Profile'} label={'User Details'} />
       </Pressable>
       <Pressable
         onPress={() => {
           nav.navigate('Test');
-        }}>
+        }}
+      >
         <SettingsItem icon={'Setting2'} label={'Settings'} />
       </Pressable>
       <Pressable onPress={() => {}}>
@@ -40,13 +42,14 @@ function SettingsGroup(props) {
 const Course = () => {
   const theme = useTheme();
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.background}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <Animated.ScrollView
         entering={FadeInDown.duration(400).delay(500)}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
         nestedScrollEnabled
-        alwaysBounceVertical>
+        alwaysBounceVertical
+      >
         <CustomHeader
           title={'Profile'}
           elevation={theme.colors.elevation.level1}
@@ -58,8 +61,9 @@ const Course = () => {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
-          <View style={{flex: 1, alignItems: 'center', padding: 24}}>
+          }}
+        >
+          <View style={{ flex: 1, alignItems: 'center', padding: 24 }}>
             <Avatar.Image
               size={140}
               source={{
@@ -71,11 +75,15 @@ const Course = () => {
                 paddingVertical: 16,
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
-              <Text variant="labelLarge" style={{fontSize: 28, paddingTop: 12}}>
+              }}
+            >
+              <Text
+                variant="labelLarge"
+                style={{ fontSize: 28, paddingTop: 12 }}
+              >
                 King Grey
               </Text>
-              <Text variant="titleMedium" style={{padding: 8}}>
+              <Text variant="titleMedium" style={{ padding: 8 }}>
                 @Kinggrey
               </Text>
             </View>
@@ -83,9 +91,9 @@ const Course = () => {
             <CustomSegmentedButton colors={theme.colors} />
           </View>
         </View>
-        <View style={{paddingHorizontal: 16}}>
+        <View style={{ paddingHorizontal: 16 }}>
           {/* <Text variant="headlineSmall">Settings</Text> */}
-          <View style={{paddingTop: 16}}>
+          <View style={{ paddingTop: 16 }}>
             <SettingsGroup level1={theme.colors.elevation.level1} />
           </View>
         </View>

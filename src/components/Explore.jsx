@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {FlatList, View} from 'react-native';
-import {Button, Card, Text, useTheme} from 'react-native-paper';
+import { FlatList, View } from 'react-native';
+import { Button, Card, Text, useTheme } from 'react-native-paper';
 
 const data = [
   {
@@ -93,7 +93,7 @@ const data = [
 const Explore = () => {
   const theme = useTheme();
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     return (
       <View
         style={{
@@ -101,7 +101,8 @@ const Explore = () => {
           width: '100%',
           flex: 1,
           flexWrap: 'nowrap',
-        }}>
+        }}
+      >
         <Card
           mode="contained"
           style={{
@@ -118,14 +119,18 @@ const Explore = () => {
             alignItems: 'center',
             paddingHorizontal: 10,
             paddingVertical: 5,
-          }}>
+          }}
+        >
           <Text numberOfLines={1} ellipsizeMode="tail" variant="labelLarge">
             {item.title.length > 8
               ? `${item.title.substring(0, 15)}...`
               : item.title}
           </Text>
           <Text variant="labelLarge">
-            <Text variant="titleMedium" style={{color: theme.colors.tertiary}}>
+            <Text
+              variant="titleMedium"
+              style={{ color: theme.colors.tertiary }}
+            >
               {item.INR}
             </Text>
             {item.price}
@@ -136,15 +141,16 @@ const Explore = () => {
   };
 
   return (
-    <View style={{paddingHorizontal: 4}}>
-      <View style={{paddingHorizontal: 12, paddingTop: 20, paddingBottom: 8}}>
+    <View style={{ paddingHorizontal: 4 }}>
+      <View style={{ paddingHorizontal: 12, paddingTop: 20, paddingBottom: 8 }}>
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-          }}>
-          <Text variant="titleMedium" style={{fontSize: 20}}>
+          }}
+        >
+          <Text variant="titleMedium" style={{ fontSize: 20 }}>
             Explore Courses
           </Text>
           <Button mode="text" onPress={() => {}}>
@@ -155,10 +161,10 @@ const Explore = () => {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         numColumns={2}
-        columnWrapperStyle={{gap: 0}}
-        contentContainerStyle={{gap: 0}}
+        columnWrapperStyle={{ gap: 0 }}
+        contentContainerStyle={{ gap: 0 }}
         showsVerticalScrollIndicator={false}
       />
       <View
@@ -166,7 +172,8 @@ const Explore = () => {
           justifyContent: 'center',
           alignItems: 'center',
           paddingVertical: 16,
-        }}>
+        }}
+      >
         <Button mode="contained-tonal" onPress={() => {}}>
           View more
         </Button>

@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unstable-nested-components */
-import {Heart, NotificationBing} from 'iconsax-react-native';
+import { Heart, NotificationBing } from 'iconsax-react-native';
 import React from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
-import {Appbar, Text, Tooltip, useTheme} from 'react-native-paper';
+import { Platform, StyleSheet, View } from 'react-native';
+import { Appbar, Text, Tooltip, useTheme } from 'react-native-paper';
 
 const AppHeader = () => {
   const theme = useTheme();
@@ -10,20 +10,23 @@ const AppHeader = () => {
     <View
       style={[
         style.headerContainer,
-        {backgroundColor: theme.colors.elevation.level1},
-      ]}>
-      <Appbar.Header style={{backgroundColor: theme.colors.elevation.level1}}>
+        { backgroundColor: theme.colors.elevation.level1 },
+      ]}
+    >
+      <Appbar.Header style={{ backgroundColor: theme.colors.elevation.level1 }}>
         <Appbar.Content
           title={
             <>
               <Text
                 variant="headlineLarge"
-                style={[style.headerText, {color: theme.colors.onSurface}]}>
+                style={[style.headerText, { color: theme.colors.onSurface }]}
+              >
                 Hello King!
               </Text>
               <Text
                 variant="titleMedium"
-                style={{color: theme.colors.onSurfaceDisabled}}>
+                style={{ color: theme.colors.onSurfaceDisabled }}
+              >
                 Let's learn something today
               </Text>
             </>

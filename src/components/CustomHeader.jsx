@@ -1,10 +1,10 @@
-import {More, Sort, UserEdit} from 'iconsax-react-native';
+import { More, Sort, UserEdit } from 'iconsax-react-native';
 import React from 'react';
-import {Platform, StyleSheet} from 'react-native';
-import {Appbar, Text, useTheme} from 'react-native-paper';
-import Animated, {FadeInUp} from 'react-native-reanimated';
+import { Platform, StyleSheet } from 'react-native';
+import { Appbar, Text, useTheme } from 'react-native-paper';
+import Animated, { FadeInUp } from 'react-native-reanimated';
 
-const CustomHeader = ({title, elevation, onSurface, customIconType}) => {
+const CustomHeader = ({ title, elevation, onSurface, customIconType }) => {
   const theme = useTheme();
   const renderIcon = (color, size) => {
     switch (customIconType) {
@@ -30,12 +30,14 @@ const CustomHeader = ({title, elevation, onSurface, customIconType}) => {
         {
           backgroundColor: elevation,
         },
-      ]}>
+      ]}
+    >
       <Appbar.Header
         style={{
           backgroundColor: elevation,
         }}
-        mode="small">
+        mode="small"
+      >
         <Appbar.Content
           title={
             <Text
@@ -45,13 +47,14 @@ const CustomHeader = ({title, elevation, onSurface, customIconType}) => {
                 {
                   color: onSurface,
                 },
-              ]}>
+              ]}
+            >
               {title}
             </Text>
           }
         />
         <Appbar.Action
-          icon={({color, size}) => renderIcon(color, size)}
+          icon={({ color, size }) => renderIcon(color, size)}
           onPress={() => {}}
           size={28}
           color={theme.colors.primary}

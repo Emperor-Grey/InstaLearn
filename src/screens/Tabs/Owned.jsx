@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {FlatList, SafeAreaView} from 'react-native';
-import {Card, Text, useTheme} from 'react-native-paper';
-import Animated, {FadeInDown, FadeInRight} from 'react-native-reanimated';
+import { FlatList, SafeAreaView } from 'react-native';
+import { Card, Text, useTheme } from 'react-native-paper';
+import Animated, { FadeInDown, FadeInRight } from 'react-native-reanimated';
 
 const data = [
   {
@@ -94,7 +94,7 @@ const data = [
 const Owned = () => {
   const theme = useTheme();
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     return (
       <Animated.View
         entering={FadeInDown.duration(600).delay(1200)}
@@ -103,7 +103,8 @@ const Owned = () => {
           width: '100%',
           flex: 1,
           flexWrap: 'nowrap',
-        }}>
+        }}
+      >
         <Card
           mode="contained"
           style={{
@@ -121,14 +122,18 @@ const Owned = () => {
             alignItems: 'center',
             paddingHorizontal: 10,
             paddingVertical: 5,
-          }}>
+          }}
+        >
           <Text numberOfLines={1} ellipsizeMode="tail" variant="labelLarge">
             {item.title.length > 8
               ? `${item.title.substring(0, 15)}...`
               : item.title}
           </Text>
           <Text variant="labelLarge">
-            <Text variant="titleMedium" style={{color: theme.colors.tertiary}}>
+            <Text
+              variant="titleMedium"
+              style={{ color: theme.colors.tertiary }}
+            >
               {item.INR}
             </Text>
             {item.price}
@@ -145,14 +150,15 @@ const Owned = () => {
         paddingVertical: 4,
         flex: 1,
         backgroundColor: theme.colors.background,
-      }}>
+      }}
+    >
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         numColumns={2}
-        columnWrapperStyle={{gap: 0}}
-        contentContainerStyle={{gap: 0}}
+        columnWrapperStyle={{ gap: 0 }}
+        contentContainerStyle={{ gap: 0 }}
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>

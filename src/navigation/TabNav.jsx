@@ -1,6 +1,6 @@
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React from 'react';
-import {useTheme} from 'react-native-paper';
+import { useTheme } from 'react-native-paper';
 import Browse from '../screens/Tabs/Browse';
 import Owned from '../screens/Tabs/Owned';
 
@@ -15,7 +15,7 @@ const TabNav = () => {
         animationEnabled: true,
         tabBarIndicator: () => null,
         tabBarBounces: true,
-        tabBarAndroidRipple: {borderless: true},
+        tabBarAndroidRipple: { borderless: true },
         tabBarInactiveTintColor: theme.colors.onSurfaceDisabled,
         tabBarActiveTintColor: theme.colors.primary,
         tabBarContentContainerStyle: {
@@ -24,9 +24,10 @@ const TabNav = () => {
         tabBarLabelStyle: {
           textTransform: 'none',
           fontSize: 14,
-          fontFamily: 'Poppins-Medium',
+          fontFamily: 'Inter-Regular',
         },
-      }}>
+      }}
+    >
       <Tab.Screen name="Explore" component={Browse} />
       <Tab.Screen name="My Courses" component={Owned} />
     </Tab.Navigator>

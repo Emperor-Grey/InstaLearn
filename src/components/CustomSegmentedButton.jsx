@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import SegmentedItem from './SegmentedItem';
 
-const CustomSegmentedButton = props => {
+const CustomSegmentedButton = (props) => {
   return (
     <View
       style={{
@@ -15,7 +15,8 @@ const CustomSegmentedButton = props => {
         borderRadius: 16,
         marginTop: 12,
         backgroundColor: props.colors.elevation.level2,
-      }}>
+      }}
+    >
       <TouchableOpacity onPress={() => {}}>
         <SegmentedItem
           color={props.colors.primary}

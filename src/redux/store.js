@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {configureStore} from '@reduxjs/toolkit';
-import {persistReducer, persistStore} from 'redux-persist';
+import { configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 import bannerReducer from './reducers/bannerSlice';
 import themeReducer from './reducers/themeSlice';
 
@@ -18,7 +18,7 @@ const store = configureStore({
     theme: persistedThemeReducer,
     banner: persistedBannerReducer,
   },
-  middleware: getDefaultMiddleware => {
+  middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       serializableCheck: false,
     });

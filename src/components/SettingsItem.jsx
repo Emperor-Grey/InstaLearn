@@ -1,8 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import {View} from 'react-native';
-import {Icon, Text, useTheme} from 'react-native-paper';
 import {
   ArrowRight3,
   LanguageSquare,
@@ -10,8 +7,11 @@ import {
   Profile,
   Setting2,
 } from 'iconsax-react-native';
+import React from 'react';
+import { View } from 'react-native';
+import { Icon, Text, useTheme } from 'react-native-paper';
 
-const SettingsItem = ({icon, label}) => {
+const SettingsItem = ({ icon, label }) => {
   const theme = useTheme();
 
   const renderIcon = () => {
@@ -36,14 +36,16 @@ const SettingsItem = ({icon, label}) => {
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingVertical: 10,
-      }}>
+      }}
+    >
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
           gap: 30,
-        }}>
+        }}
+      >
         <View
           style={{
             backgroundColor: theme.colors.elevation.level5,
@@ -51,16 +53,17 @@ const SettingsItem = ({icon, label}) => {
             borderRadius: 12,
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           {renderIcon()}
         </View>
-        <Text variant="titleMedium" style={{fontSize: 18}}>
+        <Text variant="titleMedium" style={{ fontSize: 18 }}>
           {label}
         </Text>
       </View>
       <Icon
         color={theme.colors.primary}
-        source={({size, color}) => <ArrowRight3 color={color} size={size} />}
+        source={({ size, color }) => <ArrowRight3 color={color} size={size} />}
         size={24}
       />
     </View>

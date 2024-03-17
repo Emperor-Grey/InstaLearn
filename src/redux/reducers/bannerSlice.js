@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const bannerSlice = createSlice({
   name: 'banner',
@@ -12,7 +12,7 @@ const bannerSlice = createSlice({
   },
 });
 
-export const {setBannerVisibility} = bannerSlice.actions;
-export const selectBannerVisibility = state => state.banner?.visible;
+export const { setBannerVisibility } = bannerSlice.actions;
+export const selectBannerVisibility = (state) => state.banner?.visible;
 
 export default bannerSlice.reducer;

@@ -12,7 +12,8 @@ const Cart = () => {
       style={{
         flex: 1,
         backgroundColor: theme.colors.background,
-      }}>
+      }}
+    >
       <CustomHeader
         title={'My Cart'}
         elevation={theme.colors.elevation.level1}
@@ -22,7 +23,8 @@ const Cart = () => {
       <Animated.ScrollView
         showsVerticalScrollIndicator={false}
         entering={FadeInUp.duration(400).delay(500)}
-        style={{flex: 1}}>
+        style={{ flex: 1 }}
+      >
         <Text>Cart</Text>
       </Animated.ScrollView>
     </SafeAreaView>

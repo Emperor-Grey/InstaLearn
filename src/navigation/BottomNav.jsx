@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-unstable-nested-components */
-import {Book1, Home2, Profile, ShoppingCart} from 'iconsax-react-native';
-import React, {useState} from 'react';
-import {BottomNavigation, useTheme} from 'react-native-paper';
+import { Book1, Home2, Profile, ShoppingCart } from 'iconsax-react-native';
+import React, { useState } from 'react';
+import { BottomNavigation, useTheme } from 'react-native-paper';
 import CartScreen from '../screens/Cart';
 import CourseScreen from '../screens/Course';
 import HomeScreen from '../screens/Home';
@@ -72,7 +72,7 @@ const BottomNav = () => {
 
   return (
     <BottomNavigation
-      navigationState={{index, routes}}
+      navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
       compact={false}
