@@ -2,8 +2,8 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { useTheme } from 'react-native-paper';
-import CustomHeader from '../components/CustomHeader';
-import TabNav from '../navigation/TabNav';
+import CustomHeader from '../../components/CustomHeader';
+import TabNav from '../../navigation/TabNav';
 
 const Course = () => {
   const theme = useTheme();

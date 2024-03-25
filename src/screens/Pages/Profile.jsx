@@ -5,9 +5,9 @@ import React from 'react';
 import { Pressable, SafeAreaView, View } from 'react-native';
 import { Avatar, Text, useTheme } from 'react-native-paper';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import CustomHeader from '../components/CustomHeader';
-import CustomSegmentedButton from '../components/CustomSegmentedButton';
-import SettingsItem from '../components/SettingsItem';
+import CustomHeader from '../../components/CustomHeader';
+import CustomSegmentedButton from '../../components/CustomSegmentedButton';
+import SettingsItem from '../../components/SettingsItem';
 
 function SettingsGroup(props) {
   const nav = useNavigation();

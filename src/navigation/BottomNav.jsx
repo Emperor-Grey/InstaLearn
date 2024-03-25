@@ -3,10 +3,10 @@
 import { Book1, Home2, Profile, ShoppingCart } from 'iconsax-react-native';
 import React, { useState } from 'react';
 import { BottomNavigation, useTheme } from 'react-native-paper';
-import CartScreen from '../screens/Cart';
-import CourseScreen from '../screens/Course';
-import HomeScreen from '../screens/Home';
-import ProfileScreen from '../screens/Profile';
+import CartScreen from '../screens/Pages/Cart';
+import CourseScreen from '../screens/Pages/Course';
+import HomeScreen from '../screens/Pages/Home';
+import ProfileScreen from '../screens/Pages/Profile';
 
 const BottomNav = () => {
   const [index, setIndex] = useState(0);
