@@ -3,7 +3,7 @@ import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import Animated, { FadeInUp } from 'react-native-reanimated';
-import CustomHeader from '../components/CustomHeader';
+import CustomHeader from '../../components/CustomHeader';
 
 const Cart = () => {
   const theme = useTheme();
