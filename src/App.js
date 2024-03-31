@@ -65,8 +65,9 @@ const App = () => {
       <PersistGate persistor={persister} loading={null}>
         <StatusBar
           animated={true}
-          hidden
+          backgroundColor={'transparent'}
           style="auto"
+          translucent
           networkActivityIndicatorVisible={true}
         />
         <Main />

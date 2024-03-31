@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Login from '../screens/Authentication/Login';
+import OnBoarding from '../screens/Authentication/OnBoarding';
 import Register from '../screens/Authentication/Register';
 import Welcome from '../screens/Authentication/Welcome';
 import Test from '../screens/Test';
@@ -13,9 +14,10 @@ const MainNav = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <Stack.Navigator
-      initialRouteName={isAuthenticated ? 'BottomNav' : 'WelcomeScreen'}
+      initialRouteName={isAuthenticated ? 'BottomNav' : 'OnBoarding'}
       screenOptions={{ headerShown: false }}
     >
+      <Stack.Screen name="OnBoarding" component={OnBoarding} />
       <Stack.Screen name="BottomNav" component={BottomNav} />
       <Stack.Screen name="Test" component={Test} />
       <Stack.Screen name="WelcomeScreen" component={Welcome} />
