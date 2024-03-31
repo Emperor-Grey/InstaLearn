@@ -1,5 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { useTheme } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import BottomNav from '../navigation/BottomNav';
 import Login from '../screens/Authentication/Login';
@@ -13,12 +15,12 @@ const Stack = createNativeStackNavigator();
 
 const MainNav = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
+  const theme = useTheme();
   const [showOnBoarding, setShowOnBoarding] = useState(null);
 
   useEffect(() => {
     checkIfAlreadyOnBoarded();
-  }, []);
+  }, [isAuthenticated]);
 
   const checkIfAlreadyOnBoarded = async () => {
     try {
@@ -43,7 +45,6 @@ const MainNav = () => {
         <Stack.Screen name="WelcomeScreen" component={Welcome} />
         <Stack.Screen name="LoginScreen" component={Login} />
         <Stack.Screen name="RegisterScreen" component={Register} />
-        <Stack.Screen name="Test" component={Test} />
       </Stack.Navigator>
     );
   }
@@ -53,17 +54,22 @@ const MainNav = () => {
   }
 
   if (!isAuthenticated) {
-    return <Welcome />;
+    return (
+      <View style={{ backgroundColor: theme.colors.background, flex: 1 }}>
+        <Welcome />
+      </View>
+    );
+  } else {
+    return (
+      <Stack.Navigator
+        initialRouteName="BottomNav"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="BottomNav" component={BottomNav} />
+        <Stack.Screen name="Test" component={Test} />
+      </Stack.Navigator>
+    );
   }
-
-  return (
-    <Stack.Navigator
-      initialRouteName="BottomNav"
-      screenOptions={{ headerShown: false }}
-    >
-      <Stack.Screen name="BottomNav" component={BottomNav} />
-    </Stack.Navigator>
-  );
 };
 
 export default MainNav;

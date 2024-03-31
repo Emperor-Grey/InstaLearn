@@ -42,6 +42,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "bfddafd5-f746-405e-8065-575fd184daaa"
+      }
+    },
+    "owner": "king_grey"
   }
 }

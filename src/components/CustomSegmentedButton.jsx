@@ -1,9 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { logoutSuccess } from '../redux/reducers/AuthSlice';
 import SegmentedItem from './SegmentedItem';
 
 const CustomSegmentedButton = (props) => {
+  const dispatch = useDispatch();
   return (
     <View
       style={{
@@ -31,11 +34,15 @@ const CustomSegmentedButton = (props) => {
           iconType={'EmptyWallet'}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(logoutSuccess());
+        }}
+      >
         <SegmentedItem
           color={props.colors.primary}
-          text={'Location'}
-          iconType={'Location'}
+          text={'LogOut'}
+          iconType={'LogOut'}
         />
       </TouchableOpacity>
     </View>
