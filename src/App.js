@@ -1,48 +1,48 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import * as NavigationBar from "expo-navigation-bar";
-import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
-import { SafeAreaView, useColorScheme } from "react-native";
-import { ActivityIndicator, PaperProvider, useTheme } from "react-native-paper";
+import { NavigationContainer } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import * as NavigationBar from 'expo-navigation-bar';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
+import { SafeAreaView, useColorScheme } from 'react-native';
+import { ActivityIndicator, PaperProvider, useTheme } from 'react-native-paper';
 import {
   Provider as ReduxProvider,
   useSelector,
-} from "react-redux/dist/react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import MainNav from "./navigation/MainNav";
-import { selectCurrentTheme } from "./redux/reducers/themeSlice";
-import store, { persister } from "./redux/store";
+} from 'react-redux/dist/react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import MainNav from './navigation/MainNav';
+import { selectCurrentTheme } from './redux/reducers/themeSlice';
+import store, { persister } from './redux/store';
 import {
   darkTheme as BananaDark,
   lightTheme as BananaLight,
-} from "./themes/Banana";
+} from './themes/Banana';
 import {
   darkTheme as BlueDark,
   lightTheme as BlueLight,
-} from "./themes/BlueSapphire";
+} from './themes/BlueSapphire';
 import {
   darkTheme as GrapeDark,
   lightTheme as GrapeLight,
-} from "./themes/GrapeSoda";
+} from './themes/GrapeSoda';
 import {
   darkTheme as GreenDark,
   lightTheme as GreenLight,
-} from "./themes/GreenApple";
+} from './themes/GreenApple';
 const App = () => {
   const theme = useTheme();
 
   const [fontsLoaded] = useFonts({
-    "Inter-Black": require("../assets/fonts/Inter-Black.ttf"),
-    "Inter-Bold": require("../assets/fonts/Inter-Bold.ttf"),
-    "Inter-Regular": require("../assets/fonts/Inter-Regular.ttf"),
-    "Inter-Bold": require("../assets/fonts/Inter-Bold.ttf"),
-    "Inter-ExtraBold": require("../assets/fonts/Inter-ExtraBold.ttf"),
-    "Inter-ExtraLight": require("../assets/fonts/Inter-ExtraLight.ttf"),
-    "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
-    "Inter-Medium": require("../assets/fonts/Inter-Medium.ttf"),
-    "Inter-SemiBold": require("../assets/fonts/Inter-SemiBold.ttf"),
-    "Inter-Thin": require("../assets/fonts/Inter-Thin.ttf"),
+    'Inter-Black': require('../assets/fonts/Inter-Black.ttf'),
+    'Inter-Bold': require('../assets/fonts/Inter-Bold.ttf'),
+    'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf'),
+    'Inter-Bold': require('../assets/fonts/Inter-Bold.ttf'),
+    'Inter-ExtraBold': require('../assets/fonts/Inter-ExtraBold.ttf'),
+    'Inter-ExtraLight': require('../assets/fonts/Inter-ExtraLight.ttf'),
+    'Inter-Light': require('../assets/fonts/Inter-Light.ttf'),
+    'Inter-Medium': require('../assets/fonts/Inter-Medium.ttf'),
+    'Inter-SemiBold': require('../assets/fonts/Inter-SemiBold.ttf'),
+    'Inter-Thin': require('../assets/fonts/Inter-Thin.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -50,8 +50,8 @@ const App = () => {
       <SafeAreaView
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
+          justifyContent: 'center',
+          alignItems: 'center',
           backgroundColor: theme.colors.onBackground,
         }}
       >
@@ -81,31 +81,31 @@ const Main = () => {
   const systemColorScheme = useColorScheme();
 
   useEffect(() => {
-    NavigationBar.setBehaviorAsync("overlay-swipe");
-    NavigationBar.setVisibilityAsync("hidden");
+    NavigationBar.setBehaviorAsync('overlay-swipe');
+    NavigationBar.setVisibilityAsync('hidden');
   }, []);
 
   let paperTheme;
 
   switch (currentTheme) {
-    case "GreenApple":
+    case 'GreenApple':
       paperTheme =
-        systemColorScheme === "dark" ? { ...GreenDark } : { ...GreenLight };
+        systemColorScheme === 'dark' ? { ...GreenDark } : { ...GreenLight };
       break;
 
-    case "Banana":
+    case 'Banana':
       paperTheme =
-        systemColorScheme === "dark" ? { ...BananaDark } : { ...BananaLight };
+        systemColorScheme === 'dark' ? { ...BananaDark } : { ...BananaLight };
       break;
 
-    case "GrapeSoda":
+    case 'GrapeSoda':
       paperTheme =
-        systemColorScheme === "dark" ? { ...GrapeDark } : { ...GrapeLight };
+        systemColorScheme === 'dark' ? { ...GrapeDark } : { ...GrapeLight };
       break;
 
     default:
       paperTheme =
-        systemColorScheme === "dark" ? { ...BlueDark } : { ...BlueLight };
+        systemColorScheme === 'dark' ? { ...BlueDark } : { ...BlueLight };
   }
 
   return (
