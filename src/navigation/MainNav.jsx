@@ -42,8 +42,8 @@ const MainNav = () => {
         <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen} />
         <Stack.Screen name="WelcomeScreen" component={Welcome} />
         <Stack.Screen name="LoginScreen" component={Login} />
-        <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="RegisterScreen" component={Register} />
+        <Stack.Screen name="Test" component={Test} />
       </Stack.Navigator>
     );
   }
