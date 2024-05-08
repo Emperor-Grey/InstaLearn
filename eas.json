@@ -1,22 +1,23 @@
 {
   "build": {
-    "development": {
-      "developmentClient": true
+    "test": {
+      "developmentClient": true,
+      "distribution": "internal"
     },
-    "alpha": {
+    "dev": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleDebug"
       }
     },
-    "beta": {
-      "android": {
-        "gradleCommand": ":app:assembleRelease"
-      }
-    },
-    "internal": {
-      "distribution": "internal"
-    },
+    "production": {}
+  },
+  "submit": {
     "production": {}
   }
 }
