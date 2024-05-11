@@ -1,120 +1,120 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
+import {NavigationContainer} from '@react-navigation/native';
+import {useFonts} from 'expo-font';
 import * as NavigationBar from 'expo-navigation-bar';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import { SafeAreaView, useColorScheme } from 'react-native';
-import { ActivityIndicator, PaperProvider, useTheme } from 'react-native-paper';
+import {StatusBar} from 'expo-status-bar';
+import {useEffect} from 'react';
+import {SafeAreaView, useColorScheme} from 'react-native';
+import {ActivityIndicator, PaperProvider, useTheme} from 'react-native-paper';
 import {
-  Provider as ReduxProvider,
-  useSelector,
+    Provider as ReduxProvider,
+    useSelector,
 } from 'react-redux/dist/react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import {PersistGate} from 'redux-persist/integration/react';
 import MainNav from './src/navigation/MainNav';
-import { selectCurrentTheme } from './src/redux/reducers/themeSlice';
-import store, { persister } from './src/redux/store';
+import {selectCurrentTheme} from './src/redux/reducers/themeSlice';
+import store, {persister} from './src/redux/store';
 import {
-  darkTheme as BananaDark,
-  lightTheme as BananaLight,
+    darkTheme as BananaDark,
+    lightTheme as BananaLight,
 } from './src/themes/Banana';
 import {
-  darkTheme as BlueDark,
-  lightTheme as BlueLight,
+    darkTheme as BlueDark,
+    lightTheme as BlueLight,
 } from './src/themes/BlueSapphire';
 import {
-  darkTheme as GrapeDark,
-  lightTheme as GrapeLight,
+    darkTheme as GrapeDark,
+    lightTheme as GrapeLight,
 } from './src/themes/GrapeSoda';
 import {
-  darkTheme as GreenDark,
-  lightTheme as GreenLight,
+    darkTheme as GreenDark,
+    lightTheme as GreenLight,
 } from './src/themes/GreenApple';
+
 const App = () => {
-  const theme = useTheme();
+    const theme = useTheme();
 
-  const [fontsLoaded] = useFonts({
-    'Inter-Black': require('./assets/fonts/Inter-Black.ttf'),
-    'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
-    'Inter-Regular': require('./assets/fonts/Inter-Regular.ttf'),
-    'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
-    'Inter-ExtraBold': require('./assets/fonts/Inter-ExtraBold.ttf'),
-    'Inter-ExtraLight': require('./assets/fonts/Inter-ExtraLight.ttf'),
-    'Inter-Light': require('./assets/fonts/Inter-Light.ttf'),
-    'Inter-Medium': require('./assets/fonts/Inter-Medium.ttf'),
-    'Inter-SemiBold': require('./assets/fonts/Inter-SemiBold.ttf'),
-    'Inter-Thin': require('./assets/fonts/Inter-Thin.ttf'),
-  });
+    const [fontsLoaded] = useFonts({
+        'Inter-Black': require('./assets/fonts/Inter-Black.ttf'),
+        'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
+        'Inter-Regular': require('./assets/fonts/Inter-Regular.ttf'),
+        'Inter-ExtraBold': require('./assets/fonts/Inter-ExtraBold.ttf'),
+        'Inter-ExtraLight': require('./assets/fonts/Inter-ExtraLight.ttf'),
+        'Inter-Light': require('./assets/fonts/Inter-Light.ttf'),
+        'Inter-Medium': require('./assets/fonts/Inter-Medium.ttf'),
+        'Inter-SemiBold': require('./assets/fonts/Inter-SemiBold.ttf'),
+        'Inter-Thin': require('./assets/fonts/Inter-Thin.ttf'),
+    });
 
-  if (!fontsLoaded) {
+    if (!fontsLoaded) {
+        return (
+            <SafeAreaView
+                style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: theme.colors.onBackground,
+                }}
+            >
+                <ActivityIndicator size={52} color={theme.colors.primary}/>
+            </SafeAreaView>
+        );
+    }
+
     return (
-      <SafeAreaView
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: theme.colors.onBackground,
-        }}
-      >
-        <ActivityIndicator size={52} color={theme.colors.primary} />
-      </SafeAreaView>
+        <ReduxProvider store={store}>
+            <PersistGate persistor={persister} loading={null}>
+                <StatusBar
+                    animated={true}
+                    backgroundColor={'transparent'}
+                    style="auto"
+                    translucent
+                    networkActivityIndicatorVisible={true}
+                />
+                <Main/>
+            </PersistGate>
+        </ReduxProvider>
     );
-  }
-
-  return (
-    <ReduxProvider store={store}>
-      <PersistGate persistor={persister} loading={null}>
-        <StatusBar
-          animated={true}
-          backgroundColor={'transparent'}
-          style="auto"
-          translucent
-          networkActivityIndicatorVisible={true}
-        />
-        <Main />
-      </PersistGate>
-    </ReduxProvider>
-  );
 };
 
 const Main = () => {
-  const currentTheme = useSelector(selectCurrentTheme);
-  const systemColorScheme = useColorScheme();
+    const currentTheme = useSelector(selectCurrentTheme);
+    const systemColorScheme = useColorScheme();
 
-  useEffect(() => {
-    NavigationBar.setBehaviorAsync('overlay-swipe');
-    NavigationBar.setVisibilityAsync('hidden');
-  }, []);
+    useEffect(() => {
+        NavigationBar.setBehaviorAsync('overlay-swipe');
+        NavigationBar.setVisibilityAsync('hidden');
+    }, []);
 
-  let paperTheme;
+    let paperTheme;
 
-  switch (currentTheme) {
-    case 'GreenApple':
-      paperTheme =
-        systemColorScheme === 'dark' ? { ...GreenDark } : { ...GreenLight };
-      break;
+    switch (currentTheme) {
+        case 'GreenApple':
+            paperTheme =
+                systemColorScheme === 'dark' ? {...GreenDark} : {...GreenLight};
+            break;
 
-    case 'Banana':
-      paperTheme =
-        systemColorScheme === 'dark' ? { ...BananaDark } : { ...BananaLight };
-      break;
+        case 'Banana':
+            paperTheme =
+                systemColorScheme === 'dark' ? {...BananaDark} : {...BananaLight};
+            break;
 
-    case 'GrapeSoda':
-      paperTheme =
-        systemColorScheme === 'dark' ? { ...GrapeDark } : { ...GrapeLight };
-      break;
+        case 'GrapeSoda':
+            paperTheme =
+                systemColorScheme === 'dark' ? {...GrapeDark} : {...GrapeLight};
+            break;
 
-    default:
-      paperTheme =
-        systemColorScheme === 'dark' ? { ...BlueDark } : { ...BlueLight };
-  }
+        default:
+            paperTheme =
+                systemColorScheme === 'dark' ? {...BlueDark} : {...BlueLight};
+    }
 
-  return (
-    <PaperProvider theme={paperTheme}>
-      <NavigationContainer theme={paperTheme}>
-        <MainNav />
-      </NavigationContainer>
-    </PaperProvider>
-  );
+    return (
+        <PaperProvider theme={paperTheme}>
+            <NavigationContainer theme={paperTheme}>
+                <MainNav/>
+            </NavigationContainer>
+        </PaperProvider>
+    );
 };
 
 export default App;
